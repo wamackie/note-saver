@@ -47,7 +47,17 @@ app.get('/api/notes/:id', (req, res) => {
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
     const note = createNewNote(req.body, notes);
-    res.json(note);
+    return res.json(note);
+})
+
+app.delete('/api/notes/:id', (req, res) => {
+    const deleteNote = req.params.id;
+    notesArray.forEach((element, index) => {
+        if(element.id === deleteNote){
+            notesArray.splice(index, 1);
+        }
+    })
+
 })
 
 app.get('/', (req, res) =>{

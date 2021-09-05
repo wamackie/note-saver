@@ -1,19 +1,9 @@
 {
   "notes": [
     {
-      "id": "0",
-      "title": "Test Title",
-      "text": "Test text"
-    },
-    {
-      "title": "Title",
-      "text": "Text",
-      "id": "1"
-    },
-    {
       "title": "Monday",
       "text": "Eat Food",
-      "id": "2"
+      "id": "0"
     }
   ]
 }
