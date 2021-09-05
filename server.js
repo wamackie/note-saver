@@ -51,16 +51,10 @@ app.post('/api/notes', (req, res) => {
 })
 
 app.delete('/api/notes/:id', (req, res) => {
-    const deleteNote = req.params.id;
-    notesArray.forEach((element, index) => {
-        if(element.id === deleteNote){
-            notesArray.splice(index, 1);
-        }
-    })
-
+    notes.filter((note) => note.id !==id)
 })
 
-app.get('/', (req, res) =>{
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 })
 
