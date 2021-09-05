@@ -2,7 +2,6 @@ const fs = require('fs');
 const express = require('express');
 const path = require('path');
 const { notes } = require('./db/db.json');
-const { Z_NO_COMPRESSION } = require('zlib');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
