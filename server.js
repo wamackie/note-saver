@@ -1,32 +1,33 @@
 const fs = require('fs');
 const express = require('express');
 const path = require('path');
-const { notesArray } = require('./db/db.json')
+const { notes } = require('./db/db.json')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const notesArray = [];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-// function findNoteID(id, notesArray) {
-//     const result = notesArray.filter(notes => notes.id === id)[0];
-//     return result;
-// }
+function findById(id, notesArray) {
+    const result = notesArray.filter(note => note.id === id)[0];
+    return result;
+}
 
-// function createNewNote(body, notesArray) {
-//     const note = body;
-//     notesArray.push(note);
-//     fs.writeFileSync(
-//         path.join(__dirname, './db/db.json'),
-//         JSON.stringify({ notes: notesArray}, null, 2)
-//     );
-//     return note;
-// }
+function createNewNote(body, notesArray) {
+    const note = body;
+    notesArray.push(note);
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify({ notes: notesArray}, null, 2)
+    );
+    return note;
+}
 
 app.get('/api/notes', (req, res) => {
-    let results = notesArray;
+    let results = notes;
     if (req.query) {
         results = (req.query, results);
     }
@@ -34,7 +35,7 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.get('/api/notes/:id', (req, res) => {
-    const result = findById(req.params.id, notesArray);
+    const result = findById(req.params.id, notes);
     if (result) {
         res.json(result);
     }
@@ -44,7 +45,9 @@ app.get('/api/notes/:id', (req, res) => {
 })
 
 app.post('/api/notes', (req, res) => {
-    req.body.id = notesArray.length.toString();
+    req.body.id = notes.length.toString();
+    const note = createNewNote(req.body, notes);
+    res.json(note);
 })
 
 app.get('/', (req, res) =>{
