@@ -1,19 +1,5 @@
 {
   "notes": [
-    {
-      "title": "Monday",
-      "text": "Wake up",
-      "id": "0"
-    },
-    {
-      "title": "Tuesday",
-      "text": "Sleep",
-      "id": "1"
-    },
-    {
-      "title": "Wednesday",
-      "text": "Wake up\nEat Food\nWalk the dog",
-      "id": "2"
-    }
+    
   ]
 }
