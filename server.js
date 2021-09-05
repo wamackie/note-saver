@@ -1,7 +1,8 @@
 const fs = require('fs');
 const express = require('express');
 const path = require('path');
-const { notes } = require('./db/db.json')
+const { notes } = require('./db/db.json');
+const { Z_NO_COMPRESSION } = require('zlib');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -51,7 +52,13 @@ app.post('/api/notes', (req, res) => {
 })
 
 app.delete('/api/notes/:id', (req, res) => {
-    notes.filter((note) => note.id !==id)
+    notes.filter((note) => note.id !== req.params.id);
+    let newNote = notes.filter((note) => note.id !== req.params.id);
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify({ notes: newNote}, null, 2)
+    );
+    return res.json(note);
 })
 
 app.get('/', (req, res) => {
