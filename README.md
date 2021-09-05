@@ -5,6 +5,10 @@ Uses express to create an application that can be used to write and save notes.
 ## Heroku App
 https://desolate-sea-67246.herokuapp.com/
 
+
+![Alt text](/public/assets/images/screenshot.png?raw=true "screenshot")
+
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
