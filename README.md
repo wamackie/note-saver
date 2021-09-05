@@ -1,4 +1,4 @@
-# note-saver
+# Note Saver
 ![badge](https://img.shields.io/badge/license-MIT-yellowgreen)<br>
 Uses express to create an application that can be used to write and save notes.
     
