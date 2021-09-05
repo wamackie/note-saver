@@ -58,7 +58,7 @@ app.delete('/api/notes/:id', (req, res) => {
         path.join(__dirname, './db/db.json'),
         JSON.stringify({ notes: newNote}, null, 2)
     );
-    return res.json(note);
+    return res.status(200);
 })
 
 app.get('/', (req, res) => {
