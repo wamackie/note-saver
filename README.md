@@ -1,6 +1,7 @@
-# note-saver
-![badge](https://img.shields.io/badge/license-MIT-yellowgreen)<br>
+![badge](https://img.shields.io/badge/license-MIT-yellowgreen)
+# Note Saver
 Uses express to create an application that can be used to write and save notes.
+
     
 ## Heroku App
 https://desolate-sea-67246.herokuapp.com/
